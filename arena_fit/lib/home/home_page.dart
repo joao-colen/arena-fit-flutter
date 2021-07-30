@@ -4,7 +4,7 @@ import 'package:arena_fit/home/widgets/ad_card/ad_card_widget.dart';
 import 'package:arena_fit/home/widgets/appbar/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/home_state.dart';
+import 'home_state.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({ Key? key }) : super(key: key);
@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
     controller.stateNotifier.addListener(() { 
       setState(() {});
     });
+    
   }
 
   @override

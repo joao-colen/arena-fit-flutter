@@ -5,11 +5,11 @@ import 'package:arena_fit/shared/models/ad_model.dart';
 import 'package:arena_fit/shared/models/user_model.dart';
 import 'package:flutter/foundation.dart';
 
-import 'widgets/home_state.dart';
+import 'home_state.dart';
 
 
 class HomeController {
-final stateNotifier =  ValueNotifier<HomeState>(HomeState.empty);
+  final stateNotifier =  ValueNotifier<HomeState>(HomeState.empty);
   set state(HomeState state) => stateNotifier.value = state;
   HomeState get state => stateNotifier.value;
 
@@ -21,12 +21,14 @@ final stateNotifier =  ValueNotifier<HomeState>(HomeState.empty);
   void getUser() async{
     state = HomeState.loading;
     user = await repository.getUser();
+    Future.delayed(Duration(seconds: 4));
     state = HomeState.success;
   }
 
   void getAds() async{
     state = HomeState.loading;
     ads = await repository.getAds();
+    Future.delayed(Duration(seconds: 4));
     state = HomeState.success;
   }
 }
