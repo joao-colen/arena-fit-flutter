@@ -3,10 +3,17 @@ import 'package:google_fonts/google_fonts.dart';
 const color = const Color(0xFFB002050);
 
 class ConfirmationPage extends StatelessWidget {
-  const ConfirmationPage({ Key? key }) : super(key: key);
+  final String time;
+  const ConfirmationPage({
+    Key? key,
+    required this.time,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pop(context);
+    });
     return Scaffold(
       body: Stack(
         children: [
@@ -33,17 +40,33 @@ class ConfirmationPage extends StatelessWidget {
               child: Center(
                 child: Text.rich(
                   TextSpan(
-                    text: "Reserva Confirmada!",
+                    text: "Reserva Confirmada!\n",
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(color: Colors.white, fontSize: 30)
-                    )
+                    ),
                   )
                 ),
               ),
             ),
           ),
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 330),
+              child: Center(
+                child: 
+                  Text.rich(
+                    TextSpan(
+                      text: time ,
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25)
+                      )
+                    ) 
+                ),
+              ),
+            ),
+          )
         ],
       ),
-    );;
+    );
   }
 }

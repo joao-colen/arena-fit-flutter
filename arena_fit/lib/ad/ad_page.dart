@@ -1,8 +1,25 @@
+import 'package:arena_fit/confirmation/confirmation_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AdPage extends StatefulWidget {
-  const AdPage({ Key? key }) : super(key: key);
+  final String imagem;
+  final String title;
+  final String name; 
+  final String address; 
+  final String description; 
+  final String price; 
+  final String profile; 
+  const AdPage({
+    Key? key,
+    required this.imagem,
+    required this.title,
+    required this.name,
+    required this.address,
+    required this.description,
+    required this.price,
+    required this.profile,
+  }) : super(key: key);
 
   @override
   _AdPageState createState() => _AdPageState();
@@ -44,7 +61,7 @@ class _AdPageState extends State<AdPage> {
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   image: DecorationImage(
-                    image: AssetImage('assets/images/futevolei.jpg'),
+                    image: AssetImage(widget.imagem),
                     fit: BoxFit.fill
                   ),
                 ),
@@ -79,7 +96,7 @@ class _AdPageState extends State<AdPage> {
                               padding: const EdgeInsets.only(left: 13, bottom: 11),
                               child: Text.rich(
                                 TextSpan(
-                                  text: "Aula de Futevolei",
+                                  text: widget.name,
                                   style: GoogleFonts.poppins(
                                     textStyle: TextStyle(color: Colors.white, fontSize: 26)
                                   ),
@@ -124,7 +141,7 @@ class _AdPageState extends State<AdPage> {
                                     Container(
                                       child: Text.rich(
                                         TextSpan(
-                                          text: "Aula Futevolei",
+                                          text: widget.title,
                                           style: GoogleFonts.poppins(
                                             textStyle: TextStyle(color: Colors.white, fontSize: 25)
                                           )
@@ -135,7 +152,7 @@ class _AdPageState extends State<AdPage> {
                                     Container(
                                       child: Text.rich(
                                         TextSpan(
-                                          text: "Av. Cristal, 58, Eldorado",
+                                          text: widget.address,
                                           style: GoogleFonts.poppins(
                                             textStyle: TextStyle(color: Colors.white, fontSize: 12)
                                           )
@@ -145,7 +162,7 @@ class _AdPageState extends State<AdPage> {
                                   ],
                                 ),
                               ),
-                              SizedBox(width: 90),
+                              SizedBox(width: 25),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -158,7 +175,7 @@ class _AdPageState extends State<AdPage> {
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(50),
                                         image: DecorationImage(
-                                          image: AssetImage('assets/images/profile.jpg'),
+                                          image: AssetImage(widget.profile),
                                           fit: BoxFit.fill
                                         )
                                       )  
@@ -167,7 +184,7 @@ class _AdPageState extends State<AdPage> {
                                   Container(
                                     child: Text.rich(
                                       TextSpan(
-                                        text: "R\$ 21,99",
+                                        text: "R\$ ${widget.price}",
                                         style: GoogleFonts.poppins(
                                           textStyle: TextStyle(color: Colors.white, fontSize: 18)
                                         )
@@ -187,7 +204,7 @@ class _AdPageState extends State<AdPage> {
                       Row(
                         children: [
                           Container(
-                            height: 154,
+                            height: 172,
                             child: Padding(
                               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                               child: Column(
@@ -207,7 +224,7 @@ class _AdPageState extends State<AdPage> {
                                       width: 324,
                                       child: Text.rich(
                                         TextSpan(
-                                          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                                          text: widget.description,
                                           style: GoogleFonts.poppins(
                                             textStyle: TextStyle(color: Colors.white, fontSize: 12)
                                           )
@@ -225,7 +242,7 @@ class _AdPageState extends State<AdPage> {
                   Row(
                     children: [
                       Container(
-                        height: 118,
+                        height: 100,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                           child: Column(
@@ -278,7 +295,11 @@ class _AdPageState extends State<AdPage> {
                                                   backgroundColor: MaterialStateProperty.all(Color(0xFFB24AA53)),
                                                   shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
                                                 ),
-                                                onPressed: (){},
+                                                onPressed: (){
+                                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => ConfirmationPage(
+                                                    time: _time.format(context)
+                                                  )));
+                                                },
                                                 child: Text('Reservar Horário',
                                                 style: GoogleFonts.poppins(
                                                   fontSize: 14
