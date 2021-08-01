@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 const color = const Color(0xFFB002050);
 
 class ConfirmationPage extends StatelessWidget {
@@ -19,7 +20,7 @@ class ConfirmationPage extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: color, 
+              color: color,
               backgroundBlendMode: BlendMode.luminosity,
             ),
             child: Center(
@@ -38,30 +39,25 @@ class ConfirmationPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(top: 300),
               child: Center(
-                child: Text.rich(
-                  TextSpan(
-                    text: "Reserva Confirmada!\n",
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(color: Colors.white, fontSize: 30)
-                    ),
-                  )
-                ),
+                child: Text.rich(TextSpan(
+                  text: "Reserva Confirmada!\n",
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyle(color: Colors.white, fontSize: 30)),
+                )),
               ),
             ),
           ),
           Container(
             child: Padding(
-              padding: const EdgeInsets.only(top: 330),
+              padding: const EdgeInsets.only(top: 350),
               child: Center(
-                child: 
-                  Text.rich(
-                    TextSpan(
-                      text: time ,
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25)
-                      )
-                    ) 
-                ),
+                child: Text.rich(TextSpan(
+                    text: time,
+                    style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25)))),
               ),
             ),
           )
